@@ -12,7 +12,7 @@ const Top = () => {
                 height="50"
                 src="/images/logo.ico" 
                 alt="logo" />
-                <Header as="h1" >Header</Header>
+                <Header as="h1" style={{marginLeft: '10px'}} >Olive0</Header>
             </div>
             <Gnb />
         </div>

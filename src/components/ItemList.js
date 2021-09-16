@@ -1,23 +1,41 @@
+/* eslint-disable @next/next/link-passhref */
 import { Grid, Image } from "semantic-ui-react";
+import Link from 'next/link';
 
 const ItemList = ({ list }) => {
 
     return (
+        
         <div>
             <Grid 
-            columns={3} 
-            divided>
+            columns={3}>
                 <Grid.Row>
                 {list.map((item) => (
-                        <>
-                        <Grid.Column
-                        style={{display: 'flex', justifyContent: 'center'}}
-                        >
-                            <Image 
-                            src={item.api_featured_image}
-                            alt={item.name} />
-                        </Grid.Column>
-                        </>
+                    <Grid.Column
+                    key={item.id}
+                    >
+                        <div>
+                            <Link 
+                            href={`/product/${item.id}`}
+                            passHref >
+                                <a>
+                                    <Image 
+                                    style={{margin: 'auto', cursor: 'pointer'}}
+                                    src={item.image_link}
+                                    alt={item.name} />
+                                </a>
+                            </Link>
+                            <Link 
+                            href={`/product/${item.id}`} >
+                            <div 
+                            style={{fontWeight: 'bold', cursor: 'pointer'}}>
+                                {item.name}
+                            </div>
+                            </Link>
+                            <div>{item.brand}</div>
+                            <div>$ {item.price}</div>
+                        </div>
+                    </Grid.Column>
                     ))}
                 </Grid.Row>
                 

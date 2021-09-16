@@ -29,7 +29,7 @@ export default function Home() {
       <Head>
         <title>Home</title>
       </Head>
-      <Header as="h3" style={{paddingTop: 40}}>
+      <Header as="h3" style={{margin: '20px 0'}}>
         베스트 상품
       </Header>
       <Divider />

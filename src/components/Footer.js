@@ -1,6 +1,13 @@
+import { Divider } from "semantic-ui-react";
+
 const Footer = () => {
 
-    return <div>Copright CW. All rights reserved.</div>
+    return (
+        <>
+            <Divider />
+            <strong style={{margin: 'auto'}} >Copright CW. All rights reserved.</strong>
+        </>
+    ) 
 } 
 
 export default Footer;

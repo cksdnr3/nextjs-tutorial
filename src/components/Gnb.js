@@ -10,11 +10,11 @@ const Gnb = () => {
         <div>
             <Menu >
                 <Menu.Item
-                name='editorials'
-                active={activeItem === 'editorials'}
+                name='Home'
+                active={activeItem === 'Home'}
                 onClick={handleItemClick}
                 >
-                Editorials
+                Home
                 </Menu.Item>
 
                 <Menu.Item
