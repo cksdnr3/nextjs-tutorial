@@ -16,7 +16,7 @@ const ItemList = ({ list }) => {
                     >
                         <div>
                             <Link 
-                            href={`/product/${item.id}`}
+                            href={`/item/${item.id}`}
                             passHref >
                                 <a>
                                     <Image 
@@ -26,7 +26,7 @@ const ItemList = ({ list }) => {
                                 </a>
                             </Link>
                             <Link 
-                            href={`/product/${item.id}`} >
+                            href={`/item/${item.id}`} >
                             <div 
                             style={{fontWeight: 'bold', cursor: 'pointer'}}>
                                 {item.name}
