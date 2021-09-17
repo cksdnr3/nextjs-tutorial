@@ -1,10 +1,20 @@
+import { useRouter } from 'next/dist/client/router';
 import { useState } from 'react';
 import { Menu } from 'semantic-ui-react';
  
 
 const Gnb = () => {
     const [activeItem, setActiveItem] = useState("");
-    const handleItemClick = (e, { name }) => setActiveItem(name);
+    const router = useRouter();
+    console.log(router)
+
+    const handleItemClick = (e, { name }) => {
+        setActiveItem(name);
+        let page;
+        if (name === 'Home') page = '/';
+        if (name === 'About') page = '/about';
+        router.push(page)
+    } 
  
     return (  
         <div>
@@ -18,19 +28,11 @@ const Gnb = () => {
                 </Menu.Item>
 
                 <Menu.Item
-                name='reviews'
-                active={activeItem === 'reviews'}
+                name='About'
+                active={activeItem === 'About'}
                 onClick={handleItemClick}
                 >
-                Reviews
-                </Menu.Item>
-
-                <Menu.Item
-                name='upcomingEvents'
-                active={activeItem === 'upcomingEvents'}
-                onClick={handleItemClick}
-                >
-                Upcoming Events
+                About
                 </Menu.Item>
             </Menu>
         </div>

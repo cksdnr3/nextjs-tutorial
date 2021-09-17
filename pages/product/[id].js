@@ -1,35 +1,32 @@
 import axios from 'axios';
-import { useRouter } from 'next/router'
-import { useEffect, useState } from 'react';
 import Item from '../../src/components/Item'
+import Head from 'next/head';
 
-const API_URL = "http://makeup-api.herokuapp.com/api/v1/products/"
-
-const Product = () => {
-  const [item, setItem] = useState({});  
-  const router = useRouter();
-  const { id } = router.query;
-
-
-  useEffect(() => {
-    const getData = () => {
-        axios.get(`${API_URL}${id}.json`)
-            .then(res => {
-                console.log(res.data);
-                setItem(res.data)
-            })
-            .catch(err => {
-                console.error(err);
-            })
-    };
-    if (id && id > 0) {
-        getData();
-    }
-  }, [id]);
+const Product = ({ item, env }) => {
+    console.log(env);
 
   return (
-      <Item item={item} />
+      <>
+        <Head>
+            <title>{item.name}</title>
+            <meta name="description" content={item.description}></meta>
+        </Head>
+        {item && <Item item={item} />}
+      </>
   )
 }
 
 export default Product
+
+export async function getServerSideProps(context) {
+    const id = context.params.id;
+    const apiUrl = `http://makeup-api.herokuapp.com/api/v1/products/${id}.json`
+    const res = await axios.get(apiUrl);
+
+    return {
+        props: {
+            item: res.data,
+            env: process.env.name,
+        }
+    }
+}
