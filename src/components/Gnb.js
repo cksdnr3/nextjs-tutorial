@@ -11,8 +11,11 @@ const Gnb = () => {
     const handleItemClick = (e, { name }) => {
         setActiveItem(name);
         let page;
-        if (name === 'Home') page = '/';
-        if (name === 'About') page = '/about';
+        if (name === 'home') page = '/';
+        if (name === 'about') page = `/${name}`;
+        if (name === 'contact') page = `/contact`;
+        if (name === 'admin') page = `/${name}`;
+        if (name === 'login') page = `/${name}`;
         router.push(page)
     } 
  
@@ -20,19 +23,39 @@ const Gnb = () => {
         <div>
             <Menu >
                 <Menu.Item
-                name='Home'
-                active={activeItem === 'Home'}
+                name='home'
+                active={activeItem === 'home'}
                 onClick={handleItemClick}
                 >
                 Home
                 </Menu.Item>
-
                 <Menu.Item
-                name='About'
-                active={activeItem === 'About'}
+                name='about'
+                active={activeItem === 'about'}
                 onClick={handleItemClick}
                 >
                 About
+                </Menu.Item>
+                <Menu.Item
+                name='contact'
+                active={activeItem === 'contact'}
+                onClick={handleItemClick}
+                >
+                Contact Us
+                </Menu.Item>
+                <Menu.Item
+                name='admin'
+                active={activeItem === 'admin'}
+                onClick={handleItemClick}
+                >
+                Admin
+                </Menu.Item>
+                <Menu.Item
+                name='login'
+                active={activeItem === 'login'}
+                onClick={handleItemClick}
+                >
+                Login
                 </Menu.Item>
             </Menu>
         </div>
