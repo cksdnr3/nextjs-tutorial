@@ -17,7 +17,7 @@ export default function Home({ list }) {
       <ItemList list={list} />
     </div>
   )
-} 
+}  
 
 export async function getStaticProps() {
   const apiUrl = process.env.apiUrl;
