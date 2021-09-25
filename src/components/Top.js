@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Header } from 'semantic-ui-react';
 import Gnb from './Gnb';
-
+ 
 const Top = () => {
     
     return (
